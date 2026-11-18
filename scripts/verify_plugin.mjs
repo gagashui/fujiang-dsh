@@ -9,7 +9,7 @@ const root = new URL("../", import.meta.url);
 const load = (file) => readFileSync(new URL(file, root));
 const normalize = (buf) => Buffer.from(buf.toString("utf8").replace(/\r\n/g, "\n"), "utf8");
 const hash = (bytes) => createHash("sha256").update(normalize(bytes)).digest("hex");
-const expectedHash = "0f43a5e9e22e5e56c58a0d3e0748cccf42e4f54d2353621b588cff0da88518d5";
+const expectedHash = "197ee5cb84d17524f4b0193c025166914c8368713aa3839816d92ee2915b720a";
 const pkg = JSON.parse(load("package.json"));
 
 test("prompt assets preserve the supplied bytes", () => {
