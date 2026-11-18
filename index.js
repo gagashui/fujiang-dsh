@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 
-// 富江破甲：两层提示词使用相同的内置文本。
+// 小园子破甲：两层提示词使用相同的内置文本。
 // Order 100 通用内核 + Order 200 强化镜像，两段载荷同源同构（SHA256 一致）。
 const PROMPT_URL = new URL("./prompts/fujiang.md", import.meta.url);
 const PROMPT41_URL = new URL("./prompts/fujiang-mirror.md", import.meta.url);
@@ -9,7 +9,7 @@ const PROMPT_TEXT = readFileSync(PROMPT_URL, "utf8").replace(/\{\{(?!(?:cwd|mode
 const PROMPT41_TEXT = readFileSync(PROMPT41_URL, "utf8").replace(/\{\{(?!(?:cwd|model|provider)\}\})/g, "{ {");
 
 // 双段注入镜像开关：
-//   true  = 沿用富江双层架构，Order 100 与 Order 200 各注入一份内核载荷
+//   true  = 沿用小园子双层架构，Order 100 与 Order 200 各注入一份内核载荷
 //   false = 单段注入（Order 100），省掉重复 token，行为等价
 const DUAL_LAYER_INJECTION = true;
 
