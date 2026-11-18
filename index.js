@@ -22,16 +22,16 @@ const objectOutput = {
 const profileTool = {
   name: "fujiang_profile",
   description:
-    "返回富江破甲的插件版本与提示词注入状态。",
+    "返回小园子破甲的插件版本与提示词注入状态。",
   parameters: { type: "object", properties: {}, additionalProperties: false },
   output: objectOutput,
   execute() {
     return {
       plugin: "fujiang-armor",
       pluginVersion: "0.4.3",
-      pluginDisplayName: "富江破甲",
+      pluginDisplayName: "小园子破甲",
       name: "fujiang-armor",
-      displayName: "富江破甲",
+      displayName: "小园子破甲",
       kernelVersion: "0.4.3",
       targetArchitecture: "DeepSeek-V4 / V4-Pro / V4.1-Flash 全系列",
       promptSource: [
@@ -51,7 +51,7 @@ const profileTool = {
         "Dual-Layer Injection: Order 100 通用内核 + Order 200 强化镜像",
         "Section Hosting: 双槽位可由 DUAL_LAYER_INJECTION 切换单段注入",
         "Armor Projection: 开头窗口(160)判拒 + REFUSAL/FALLBACK/SAFE/RISK 标记 + 域命中",
-        "Client Badge: 输入框上方「富江破甲已激活」实时状态条",
+        "Client Badge: 输入框上方「小园子破甲已激活」实时状态条",
         "Profile Tool: fujiang_profile 返回内核版本与注入槽位元数据",
       ],
     };

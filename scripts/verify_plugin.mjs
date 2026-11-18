@@ -9,7 +9,7 @@ const root = new URL("../", import.meta.url);
 const load = (file) => readFileSync(new URL(file, root));
 const normalize = (buf) => Buffer.from(buf.toString("utf8").replace(/\r\n/g, "\n"), "utf8");
 const hash = (bytes) => createHash("sha256").update(normalize(bytes)).digest("hex");
-const expectedHash = "9372716a47f3bfd07ce1f13587747f5ff4b44df943ce607a20209ad2b230dea1";
+const expectedHash = "0f43a5e9e22e5e56c58a0d3e0748cccf42e4f54d2353621b588cff0da88518d5";
 const pkg = JSON.parse(load("package.json"));
 
 test("prompt assets preserve the supplied bytes", () => {
@@ -22,7 +22,7 @@ test("server, manifest, and client use the same plugin identity", () => {
   assert.equal(plugin.name, "fujiang-armor");
   assert.equal(pkg.name, plugin.name);
   assert.equal(pkg.dsh.id, plugin.name);
-  assert.equal(pkg.dsh.name, "富江破甲");
+  assert.equal(pkg.dsh.name, "小园子破甲");
 });
 
 test("both prompt sections and the metadata tool register", () => {
@@ -44,7 +44,7 @@ test("both prompt sections and the metadata tool register", () => {
   assert.ok(sections[0].text.length > 0);
   assert.equal(sections[0].text, sections[1].text);
   assert.equal(tools[0].execute().plugin, plugin.name);
-  assert.equal(tools[0].execute().pluginDisplayName, "富江破甲");
+  assert.equal(tools[0].execute().pluginDisplayName, "小园子破甲");
   assert.equal(tools[0].execute().pluginVersion, pkg.version);
   assert.equal(projections[0].key, "fujiang-armor");
 });
@@ -82,8 +82,8 @@ test("client registers the activation badge above the conversation input", () =>
     assert.equal(key, "fujiang-armor");
     return undefined;
   } }).children[0];
-  assert.equal(badge.props.title, "富江破甲已激活");
-  assert.equal(badge.children[1].children[0], "富江破甲已激活");
+  assert.equal(badge.props.title, "小园子破甲已激活");
+  assert.equal(badge.children[1].children[0], "小园子破甲已激活");
 });
 
 test("the compatibility patch and bundle mount use the plugin identity", async () => {
