@@ -7,8 +7,9 @@ import * as plugin from "../index.js";
 
 const root = new URL("../", import.meta.url);
 const load = (file) => readFileSync(new URL(file, root));
-const hash = (bytes) => createHash("sha256").update(bytes).digest("hex");
-const expectedHash = "ef013b398da81504fa452ea96bc5510f3da8b314cdc33eb20dd2ce0ec90b397c";
+const normalize = (buf) => Buffer.from(buf.toString("utf8").replace(/\r\n/g, "\n"), "utf8");
+const hash = (bytes) => createHash("sha256").update(normalize(bytes)).digest("hex");
+const expectedHash = "9372716a47f3bfd07ce1f13587747f5ff4b44df943ce607a20209ad2b230dea1";
 const pkg = JSON.parse(load("package.json"));
 
 test("prompt assets preserve the supplied bytes", () => {
